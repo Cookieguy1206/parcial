@@ -5,13 +5,13 @@ class class_tienda {
 private:
     string atr_nit;
     string atr_nombre;
+
 public:
     class_tienda(string var_nit, string var_nombre) {
-        this->atr_nit = var_nit;
-        this->atr_nombre = var_nombre;
+        atr_nit = var_nit;
+        atr_nombre = var_nombre;
     }
 
-    //Metodos GET y SET apara asignar valores a los atributos
     string getAtr_nit() {
         return atr_nit;
     }
@@ -27,33 +27,23 @@ public:
     }
 
     void met_mostrar_datos_tienda() {
-    cout << "\nDATOS DE LA TIENDA: " << endl;
+        cout << "\nDATOS DE LA TIENDA: " << endl;
         cout << "NIT: " << getAtr_nit() << endl;
         cout << "Nombre: " << getAtr_nombre() << endl;
     }
-
 };
 
 class class_mascota : public class_tienda {
 private:
     int atr_edad;
-    string atr_nombre;
     string atr_id;
     string atr_raza;
+
 public:
     class_mascota(string var_nit, string var_nombre, int var_edad, string var_id, string var_raza) : class_tienda(var_nit, var_nombre) {
-        this->atr_nombre = var_nombre;
-        this->atr_edad = var_edad;
-        this->atr_id = var_id;
-        this->atr_raza = var_raza;
-    }
-
-    //Metodos GET y SET apara asignar valores a los atributos
-    string getAtr_nombre() {
-        return atr_nombre;
-    }
-    void setAtr_nombre(string var_nombre) {
-        atr_nombre = var_nombre;
+        atr_edad = var_edad;
+        atr_id = var_id;
+        atr_raza = var_raza;
     }
 
     int getAtr_edad() {
@@ -97,6 +87,7 @@ public:
         met_mostrar_datos_mascota();
         met_mostrar_datos_tienda();
     }
+
     void met_mostrar_datos_mascota() {
         cout << "\nDATOS DE LA MASCOTA: " << endl;
         cout << "Nombre Mascota: " << getAtr_nombre() << endl;
