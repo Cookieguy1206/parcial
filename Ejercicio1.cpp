@@ -93,6 +93,9 @@ public:
         cout << "Raza de la mascota" << endl;
         cin >> var_raza;
         setAtr_raza(var_raza);
+
+        met_mostrar_datos_mascota();
+        met_mostrar_datos_tienda();
     }
     void met_mostrar_datos_mascota() {
         cout << "\nDATOS DE LA MASCOTA: " << endl;
@@ -106,7 +109,5 @@ public:
 int main() {
     class_mascota obj_mascota("123456", "Tienda", 0, "", "");
     obj_mascota.met_leer_datos_mascota("", 0, "", "");
-    obj_mascota.met_mostrar_datos_mascota();
-    obj_mascota.met_mostrar_datos_tienda();
     return 0;
 }
