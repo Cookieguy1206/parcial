@@ -27,6 +27,7 @@ public:
     }
 
     void met_mostrar_datos_tienda() {
+    cout << "\nDATOS DE LA TIENDA: " << endl;
         cout << "NIT: " << getAtr_nit() << endl;
         cout << "Nombre: " << getAtr_nombre() << endl;
     }
@@ -40,7 +41,7 @@ private:
     string atr_id;
     string atr_raza;
 public:
-    class_mascota(string var_nombre, int var_edad, string var_id, string var_raza) : class_tienda(var_nit, var_nombre) {
+    class_mascota(string var_nit, string var_nombre, int var_edad, string var_id, string var_raza) : class_tienda(var_nit, var_nombre) {
         this->atr_nombre = var_nombre;
         this->atr_edad = var_edad;
         this->atr_id = var_id;
@@ -76,25 +77,36 @@ public:
         atr_raza = var_raza;
     }
 
-    void met_leer_datos_mascota() {
-        cout << "Edad: " << endl;
-        cin >> atr_edad;
-        cout << "ID: " << endl;
-        cin >>  atr_id;
-        cout << "Nombre: " << endl;
-        cin >>  atr_nombre;
-        cout << "Raza: " << endl;
-        cin >> atr_raza;
+    void met_leer_datos_mascota(string var_nombre, int var_edad, string var_id, string var_raza) {
+        cout << "Nombre de la mascota" << endl;
+        cin >> var_nombre;
+        setAtr_nombre(var_nombre);
+
+        cout << "Edad de la mascota" << endl;
+        cin >> var_edad;
+        setAtr_edad(var_edad);
+
+        cout << "ID de la mascota" << endl;
+        cin >> var_id;
+        setAtr_id(var_id);
+
+        cout << "Raza de la mascota" << endl;
+        cin >> var_raza;
+        setAtr_raza(var_raza);
     }
     void met_mostrar_datos_mascota() {
-        cout << "Nombre Mascota" << getAtr_nombre() << endl;
-        cout << "Edad Macota" << getAtr_edad() << endl;
-        cout << "ID Mascota" << getAtr_id() << endl;
-        cout << "Raza Mascota" << getAtr_raza() << endl;
+        cout << "\nDATOS DE LA MASCOTA: " << endl;
+        cout << "Nombre Mascota: " << getAtr_nombre() << endl;
+        cout << "Edad Macota: " << getAtr_edad() << endl;
+        cout << "ID Mascota: " << getAtr_id() << endl;
+        cout << "Raza Mascota: " << getAtr_raza() << endl;
     }
 };
 
 int main() {
-    class_mascota obj_mascota;
+    class_mascota obj_mascota("123456", "Tienda", 0, "", "");
+    obj_mascota.met_leer_datos_mascota("", 0, "", "");
+    obj_mascota.met_mostrar_datos_mascota();
+    obj_mascota.met_mostrar_datos_tienda();
     return 0;
 }
