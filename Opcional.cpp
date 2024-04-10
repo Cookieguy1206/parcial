@@ -139,11 +139,6 @@ public:
         leerDatos(0, 0, 0, 0, 0);
 
         if (validarDatos(getEstratoSocioeconomico(), getLecturaMesAnterior(), getLecturaMesActual(), getValorKWH())) {
-            setNumeroMedidor(getNumeroMedidor());
-            setEstratoSocioeconomico(getEstratoSocioeconomico());
-            setLecturaMesAnterior(getLecturaMesAnterior());
-            setLecturaMesActual(getLecturaMesActual());
-            setValorKWH(getValorKWH());
 
             cout << "\nNumero del medidor: " << getNumeroMedidor() << endl;
             cout << "Lectura del mes anterior: " << getLecturaMesAnterior() << endl;
