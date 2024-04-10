@@ -126,6 +126,15 @@ public:
 
         cout << "Ingrese el valor por kWh: ";
         cin >> valorKwH;
+        
+
+        if (validarDatos(estratoSocioeconomico, lecturaMesAnterior, lecturaMesActual, valorKwH)) {
+            setNumeroMedidor(numeroMedidor);
+            setEstratoSocioeconomico(estratoSocioeconomico);
+            setLecturaMesAnterior(lecturaMesAnterior);
+            setLecturaMesActual(lecturaMesActual);
+            setValorKWH(valorKwH);
+        }
     }
 
     // Método para ejecutar la lógica principal del programa
@@ -133,28 +142,19 @@ public:
 
         leerDatos(0, 0, 0, 0, 0);
 
-        if (validarDatos(getEstratoSocioeconomico(), getLecturaMesAnterior(), getLecturaMesActual(), getValorKWH())) {
-            setNumeroMedidor(getNumeroMedidor());
-            setEstratoSocioeconomico(getEstratoSocioeconomico());
-            setLecturaMesAnterior(getLecturaMesAnterior());
-            setLecturaMesActual(getLecturaMesActual());
-            setValorKWH(getValorKWH());
-        
+        cout << "\nNumero del medidor: " << getNumeroMedidor() << endl;
+        cout << "Lectura del mes anterior: " << getLecturaMesAnterior() << endl;
+        cout << "Lectura del mes actual: " << getLecturaMesActual() << endl;
+        cout << "Estrato socioeconomico: " << getEstratoSocioeconomico() << endl;
+        cout << "Valor del KWH: " << getValorKWH() << endl;
+        cout << "Consumo en KWH: " << calcularConsumoKWH() << endl;
+        cout << "Descuento otorgado: " << obtenerDescuento() * 100 << "%" << endl;
 
-            cout << "\nNumero del medidor: " << getNumeroMedidor() << endl;
-            cout << "Lectura del mes anterior: " << getLecturaMesAnterior() << endl;
-            cout << "Lectura del mes actual: " << getLecturaMesActual() << endl;
-            cout << "Estrato socioeconomico: " << getEstratoSocioeconomico() << endl;
-            cout << "Valor del KWH: " << getValorKWH() << endl;
-            cout << "Consumo en KWH: " << calcularConsumoKWH() << endl;
-            cout << "Descuento otorgado: " << obtenerDescuento() * 100 << "%" << endl;
+        double valorAPagar = calcularValorAPagar(getValorKWH());
+        long valorAPagarL = static_cast<long>(valorAPagar);
 
-            double valorAPagar = calcularValorAPagar(getValorKWH());
-            long valorAPagarL = static_cast<long>(valorAPagar);
-
-            cout << "Numero del medidor: " << getNumeroMedidor() << endl;
-            cout << "Valor a pagar: " << valorAPagarL << endl;
-        }
+        cout << "Numero del medidor: " << getNumeroMedidor() << endl;
+        cout << "Valor a pagar: " << valorAPagarL << endl;
     }
 };
 
