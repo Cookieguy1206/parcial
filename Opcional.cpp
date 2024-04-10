@@ -1,65 +1,65 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
-class MedidorEnergia {
+
+class calss_MedidorEnergia {
 private:
-    int numeroMedidor;
-    int estratoSocioeconomico;
-    double lecturaMesAnterior;
-    double lecturaMesActual;
-    double valorKWH;
+    int Atr_numeroMedidor;
+    int Atr_estratoSocioeconomico;
+    double Atr_lecturaMesAnterior;
+    double Atr_lecturaMesActual;
+    double Atr_valorKWH;
 
 public:
-    MedidorEnergia(int numMedidor, int estrato, double lecturaAnterior, double lecturaActual, double valorKwH)
-        : numeroMedidor(numMedidor), estratoSocioeconomico(estrato),
-          lecturaMesAnterior(lecturaAnterior), lecturaMesActual(lecturaActual), valorKWH(valorKwH) {}
+    calss_MedidorEnergia(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
+        : Atr_numeroMedidor(var_numMedidor), Atr_estratoSocioeconomico(var_estrato),
+          Atr_lecturaMesAnterior(var_lecturaAnterior), Atr_lecturaMesActual(var_lecturaActual), Atr_valorKWH(var_valorKwH) {}
 
     // Getters
-    int getNumeroMedidor() { 
-        return numeroMedidor; 
+    int met_getAtr_NumeroMedidor() { 
+        return Atr_numeroMedidor; 
     }
-    int getEstratoSocioeconomico() { 
-        return estratoSocioeconomico; 
+    int met_getAtr_EstratoSocioeconomico() { 
+        return Atr_estratoSocioeconomico; 
     }
-    double getLecturaMesAnterior() { 
-        return lecturaMesAnterior; 
+    double met_getAtr_LecturaMesAnterior() { 
+        return Atr_lecturaMesAnterior; 
     }
-    double getLecturaMesActual() { 
-        return lecturaMesActual; 
+    double met_getAtr_LecturaMesActual() { 
+        return Atr_lecturaMesActual; 
     }
-    double getValorKWH() { 
-        return valorKWH; 
+    double met_getAtr_ValorKWH() { 
+        return Atr_valorKWH; 
     }
 
     // Setters
-    void setNumeroMedidor(int numMedidor) { 
-        numeroMedidor = numMedidor; 
+    void met_setAtr_NumeroMedidor(int var_numMedidor) { 
+       Atr_numeroMedidor = var_numMedidor; 
     }
-    void setEstratoSocioeconomico(int estrato) { 
-        estratoSocioeconomico = estrato; 
+    void met_setAtr_EstratoSocioeconomico(int var_estrato) { 
+        Atr_estratoSocioeconomico = var_estrato; 
     }
-    void setLecturaMesAnterior(double lecturaAnterior) { 
-        lecturaMesAnterior = lecturaAnterior; 
+    void met_setAtr_LecturaMesAnterior(double var_lecturaAnterior) { 
+        Atr_lecturaMesAnterior = var_lecturaAnterior; 
     }
-    void setLecturaMesActual(double lecturaActual) { 
-        lecturaMesActual = lecturaActual; 
+    void met_setAtr_LecturaMesActual(double var_lecturaActual) { 
+        Atr_lecturaMesActual = var_lecturaActual; 
     }
-    void setValorKWH(double valorKwH) { 
-        valorKWH = valorKwH; 
-    }
-
-    double calcularConsumoKWH() {
-        return max(0.0, getLecturaMesActual() - getLecturaMesAnterior());
+    void met_setAtr_ValorKWH(double var_valorKwH) { 
+        Atr_valorKWH = var_valorKwH; 
     }
 
-    double calcularValorAPagar(double var_valorKWH) {
-        double consumoKWH = calcularConsumoKWH();
-        double descuento = obtenerDescuento();
-        return consumoKWH * var_valorKWH * (1.0 - descuento);
+    double met_calcularConsumoKWH() {
+        return max(0.0, met_getAtr_LecturaMesActual() - met_getAtr_LecturaMesAnterior());
     }
-    double obtenerDescuento() {
-        switch (getEstratoSocioeconomico()) {
+
+    double met_calcularValorAPagar(double var_valorKWH) {
+        double var_consumoKWH = met_calcularConsumoKWH();
+        double var_descuento = met_obtenerDescuento();
+        return var_consumoKWH * var_valorKWH * (1.0 - var_descuento);
+    }
+    double met_obtenerDescuento() {
+        switch (met_getAtr_EstratoSocioeconomico()) {
             case 1: return 0.5;
             case 2: return 0.3;
             case 3: return 0.2;
@@ -70,32 +70,32 @@ public:
     }
 };
 
-class Validaciones {
+class calss_Validaciones {
 public:
-    bool validarLecturas(double lecturaAnterior, double lecturaActual) {
-        return lecturaActual > lecturaAnterior;
+    bool met_validarLecturas(double var_lecturaAnterior, double var_lecturaActual) {
+        return var_lecturaActual > var_lecturaAnterior;
     }
 
-    bool validarValorKWH(double valorKwH) {
-        return valorKwH > 0;
+    bool met_validarValorKWH(double var_valorKwH) {
+        return var_valorKwH > 0;
     }
 
-    bool validarEstrato(int estrato) {
-        return estrato >= 1 && estrato <= 5;
+    bool met_validarEstrato(int var_estrato) {
+        return var_estrato >= 1 && var_estrato <= 5;
     }
 
-    bool validarDatos(int estratoSocioeconomico, double lecturaMesAnterior, double lecturaMesActual, double valorKwH) {
-        if (!validarEstrato(estratoSocioeconomico)) {
+    bool met_validarDatos(int var_estratoSocioeconomico, double var_lecturaMesAnterior, double var_lecturaMesActual, double var_valorKwH) {
+        if (!met_validarEstrato(var_estratoSocioeconomico)) {
             cout << "Error: El estrato socioeconomico debe estar entre 1 y 5.\n";
             return false;
         }
 
-        if (!validarLecturas(lecturaMesAnterior, lecturaMesActual)) {
+        if (!met_validarLecturas(var_lecturaMesAnterior, var_lecturaMesActual)) {
             cout << "Error: La lectura actual no puede ser menor o igual a la lectura anterior.\n";
             return false;
         }
 
-        if (!validarValorKWH(valorKwH)) {
+        if (!met_validarValorKWH(var_valorKwH)) {
             cout << "Error: El valor por kWh no puede ser cero ni negativo.\n";
             return false;
         }
@@ -105,62 +105,63 @@ public:
     }
 };
 
-class ProgramaMedidor : public MedidorEnergia, Validaciones {
+class calss_ProgramaMedidor : public calss_MedidorEnergia, calss_Validaciones {
 public:
-    //ructor para la clase ProgramaMedidor
-    ProgramaMedidor(int numMedidor, int estrato, double lecturaAnterior, double lecturaActual, double valorKwH)
-        : MedidorEnergia(numMedidor, estrato, lecturaAnterior, lecturaActual, valorKwH) {}
+    //constructor para la clase ProgramaMedidor
+    calss_ProgramaMedidor(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
+        : calss_MedidorEnergia(var_numMedidor, var_estrato, var_lecturaAnterior, var_lecturaActual, var_valorKwH) {}
 
-    void leerDatos(int numeroMedidor, int estratoSocioeconomico, double lecturaMesAnterior, double lecturaMesActual, double valorKwH) {
+    void met_leerDatos(int var_numeroMedidor, int var_estratoSocioeconomico, double var_lecturaMesAnterior, double var_lecturaMesActual, double var_valorKwH) {
         cout << "Ingrese el numero del medidor: ";
-        cin >> numeroMedidor;
-        setNumeroMedidor(numeroMedidor);
+        cin >> var_numeroMedidor;
+        met_setAtr_NumeroMedidor(var_numeroMedidor);
 
         cout << "Ingrese el estrato socioeconomico: ";
-        cin >> estratoSocioeconomico;
-        setEstratoSocioeconomico(estratoSocioeconomico);
+        cin >> var_estratoSocioeconomico;
+        met_setAtr_EstratoSocioeconomico(var_estratoSocioeconomico);
 
         cout << "Ingrese la lectura anterior: ";
-        cin >> lecturaMesAnterior;
-        setLecturaMesAnterior(lecturaMesAnterior);
+        cin >> var_lecturaMesAnterior;
+        met_setAtr_LecturaMesAnterior(var_lecturaMesAnterior);
 
         cout << "Ingrese la lectura actual: ";
-        cin >> lecturaMesActual;
-        setLecturaMesActual(lecturaMesActual);
+        cin >> var_lecturaMesActual;
+        met_setAtr_LecturaMesActual(var_lecturaMesActual);
 
         cout << "Ingrese el valor por kWh: ";
-        cin >> valorKwH;
-        setValorKWH(valorKwH);
+        cin >> var_valorKwH;
+        met_setAtr_ValorKWH(var_valorKwH);
     }
 
     // Método para ejecutar la lógica principal del programa
-    void ejecutar() {
+    void met_ejecutar() {
 
-        leerDatos(0, 0, 0, 0, 0);
+        met_leerDatos(0, 0, 0, 0, 0);
 
-        if (validarDatos(getEstratoSocioeconomico(), getLecturaMesAnterior(), getLecturaMesActual(), getValorKWH())) {
+        if (met_validarDatos(met_getAtr_EstratoSocioeconomico(), met_getAtr_LecturaMesAnterior(), met_getAtr_LecturaMesActual(), met_getAtr_ValorKWH())) {
 
-            cout << "\nNumero del medidor: " << getNumeroMedidor() << endl;
-            cout << "Lectura del mes anterior: " << getLecturaMesAnterior() << endl;
-            cout << "Lectura del mes actual: " << getLecturaMesActual() << endl;
-            cout << "Estrato socioeconomico: " << getEstratoSocioeconomico() << endl;
-            cout << "Valor del KWH: " << getValorKWH() << endl;
-            cout << "Consumo en KWH: " << calcularConsumoKWH() << endl;
-            cout << "Descuento otorgado: " << obtenerDescuento() * 100 << "%" << endl;
 
-            double valorAPagar = calcularValorAPagar(getValorKWH());
-            long valorAPagarL = static_cast<long>(valorAPagar);
+            cout << "\nNumero del medidor: " << met_getAtr_NumeroMedidor() << endl;
+            cout << "Lectura del mes anterior: " << met_getAtr_LecturaMesAnterior() << endl;
+            cout << "Lectura del mes actual: " << met_getAtr_LecturaMesActual() << endl;
+            cout << "Estrato socioeconomico: " << met_getAtr_EstratoSocioeconomico() << endl;
+            cout << "Valor del KWH: " << met_getAtr_ValorKWH() << endl;
+            cout << "Consumo en KWH: " << met_calcularConsumoKWH() << endl;
+            cout << "Descuento otorgado: " << met_obtenerDescuento() * 100 << "%" << endl;
 
-            cout << "Numero del medidor: " << getNumeroMedidor() << endl;
-            cout << "Valor a pagar: " << valorAPagarL << endl;
+            double var_valorAPagar = met_calcularValorAPagar(met_getAtr_ValorKWH());
+            long var_valorAPagarL = static_cast<long>(var_valorAPagar);
+
+            cout << "Numero del medidor: " << met_getAtr_NumeroMedidor() << endl;
+            cout << "Valor a pagar: " << var_valorAPagarL << endl;
         }
     }
 };
 
 int main() {
     // Ejemplo de uso
-    ProgramaMedidor programa(0, 0, 0, 0, 0);
-    programa.ejecutar();
+    calss_ProgramaMedidor obj_programa(0, 0, 0, 0, 0);
+    obj_programa.met_ejecutar();
 
     return 0;
 }
