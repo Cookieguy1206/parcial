@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-class calss_MedidorEnergia {
+class class_MedidorEnergia {
 private:
     int Atr_numeroMedidor;
     int Atr_estratoSocioeconomico;
@@ -11,7 +11,7 @@ private:
     double Atr_valorKWH;
 
 public:
-    calss_MedidorEnergia(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
+    class_MedidorEnergia(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
         : Atr_numeroMedidor(var_numMedidor), Atr_estratoSocioeconomico(var_estrato),
           Atr_lecturaMesAnterior(var_lecturaAnterior), Atr_lecturaMesActual(var_lecturaActual), Atr_valorKWH(var_valorKwH) {}
 
@@ -70,7 +70,7 @@ public:
     }
 };
 
-class calss_Validaciones {
+class class_Validaciones {
 public:
     bool met_validarLecturas(double var_lecturaAnterior, double var_lecturaActual) {
         return var_lecturaActual > var_lecturaAnterior;
@@ -105,11 +105,11 @@ public:
     }
 };
 
-class calss_ProgramaMedidor : public calss_MedidorEnergia, calss_Validaciones {
+class class_ProgramaMedidor : public class_MedidorEnergia, class_Validaciones {
 public:
     //constructor para la clase ProgramaMedidor
-    calss_ProgramaMedidor(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
-        : calss_MedidorEnergia(var_numMedidor, var_estrato, var_lecturaAnterior, var_lecturaActual, var_valorKwH) {}
+    class_ProgramaMedidor(int var_numMedidor, int var_estrato, double var_lecturaAnterior, double var_lecturaActual, double var_valorKwH)
+        : class_MedidorEnergia(var_numMedidor, var_estrato, var_lecturaAnterior, var_lecturaActual, var_valorKwH) {}
 
     void met_leerDatos(int var_numeroMedidor, int var_estratoSocioeconomico, double var_lecturaMesAnterior, double var_lecturaMesActual, double var_valorKwH) {
         cout << "Ingrese el numero del medidor: ";
@@ -160,7 +160,7 @@ public:
 
 int main() {
     // Ejemplo de uso
-    calss_ProgramaMedidor obj_programa(0, 0, 0, 0, 0);
+    class_ProgramaMedidor obj_programa(0, 0, 0, 0, 0);
     obj_programa.met_ejecutar();
 
     return 0;
